@@ -13,7 +13,8 @@ let participantes = [];
 let evento = [];
 let dataEvento = []
 
-function main () {
+function main() {
+
     console.log(
         `
         Sistema de Cadastro de Evento.
@@ -22,83 +23,79 @@ function main () {
         [2] Mostrar Eventos Cadastrados
         [3] Sair
         `);
+
 }
 
-function cadastro () {
+function cadastro() {
     caPparticipantes = readline.question("Informe seu Nome: ");
     participantes.push(caPparticipantes);
     capEvento = readline.question("Informe o evento: ");
     evento.push(capEvento);
     console.log("Cadastrado !!!");
-        
+    lista++
+
 }
+
 while (main) {
-    main()
-id = readline.question("Digite o numero corresponde a sua escolha: ");
+    main();
+    id = readline.question("Digite o numero corresponde a sua escolha: ");
 
-switch (id) {
-    case "1":
-        let data = readline.question("Informe o dia Atual: ");
-        let caPdataEvento = readline.question("Informe o dia do Evento: ");
-        if (data <= caPdataEvento) {
-            
-        } else {
-            console.log("Data nao Permitida");
-            break
-        }
+    switch (id) {
+        case "1":
+            let data = readline.question("Informe o dia Atual: ");
+            let caPdataEvento = readline.question("Informe o dia do Evento: ");
+            if (data <= caPdataEvento) {
 
-        let idade = readline.question("Informe dua Idade: ");
-        if (idade >= 18) {
-            
-        } else {
-            console.log("Idade não Permitida");
-            break
-        }
-
-        if (lista <= 100) {
-            for (let i = 0; i < 100; i++) {
-                
+            } else {
+                console.log("Data nao Permitida");
+                break
             }
-        } else {
-            console.log("Nao Permitido - Lista Cheia");
+
+            let idade = readline.question("Informe dua Idade: ");
+            if (idade >= 18) {
+
+            } else {
+                console.log("Idade não Permitida");
+                break
+            }
+
+            if (lista <= 100) {
+
+            } else {
+                console.log("Nao Permitido - Lista Cheia");
+                break
+            }
+
+            if (data <= caPdataEvento && idade >= 18 && lista <= 100) {
+                console.log("Requisitos aceitos. Iremos cadastrar seu Evento! ");
+                dataEvento.push(caPdataEvento);
+                cadastro();
+
+            } else {
+                console.log("Não Cadastrado !");
+                break
+            }
             break
+
+        case "2":
+            if(lista > 0){
+            console.log(`Lista
+            `);
+            for (let i = 0; i < lista; i++) {
+            console.log(`Solicitante: ${participantes[i]} - Evento: ${evento[i]} - Data: ${dataEvento[i]} 
+--------------------------------------------------------------                                 
+            `);                           
+            }console.log(`Quantidade de registros: ${lista}`);
+            }else{
+            console.log(`Lista Vazia !`);
+                               
         }
-
-        if (data <= caPdataEvento && idade >= 18 && lista <= 100) {
-           console.log("Requisitos aceitos. Iremos cadastrar seu Evento! ")
-           dataEvento.push(caPdataEvento);
-           lista++
-
-           cadastro();
-
-        } else {
-            console.log("Não Cadastrado !")
             break
-        }
-        break
-        
-    case "2":
-        if(lista> 0 ){
-        console.log(
-        `
-        Lista
 
-        Solicitantes:
-        ${participantes}   
-        
-        Evento: 
-        ${evento}    
-        
-        Data: 
-        ${dataEvento}   
-        `)
-        }
-        break
-        
-    
-    case "3":
-        break
-    
 
-}
+        case "3":
+            break
+
+
+    }
 }
